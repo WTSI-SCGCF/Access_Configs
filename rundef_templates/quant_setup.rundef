@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<RunSet Name="DNA Quantification">
-     <RunSetOwner />
-     <RunSetComments />
-     <Run RunID="398" RunName="Step 1: Pooling DNA Sources to Standards" RunDelayInSeconds="0" ScheduleRunTime="1/1/0001 12:00:00 AM">
+<RunSet Name="DNA Quantification prior to Library Preparation">
+     <RunSetOwner>ACCESS</RunSetOwner>
+     <RunSetComments>Runset to handle DNA Quantification</RunSetComments>
+     <Run RunID="0" RunName="Step 1: Pooling DNA to Standards" RunDelayInSeconds="0" ScheduleRunTime="1/1/0001 12:00:00 AM">
           <Definition>
                <ReferenceID>SSS_RUNSET_REFERENCE_ID_SSS</ReferenceID>
                <Comments>This file is generated automatically by the Access System python script</Comments>
@@ -19,6 +19,19 @@
           </Parameters>
           <Notifications>
                <Users />
+               <NotifyConditions>
+                    <NotifyCondition name="RunStarted">true</NotifyCondition>
+                    <NotifyCondition name="RunRequiresUserAttention">true</NotifyCondition>
+                    <NotifyCondition name="RunExecutionError">true</NotifyCondition>
+                    <NotifyCondition name="RunFinished">true</NotifyCondition>
+                    <NotifyCondition name="RunCompletedSuccessfully">false</NotifyCondition>
+                    <NotifyCondition name="RunCompletedWithWarnings">false</NotifyCondition>
+                    <NotifyCondition name="RunCompletedWithErrors">false</NotifyCondition>
+                    <NotifyCondition name="RunStopped">true</NotifyCondition>
+                    <NotifyCondition name="RunAborted">false</NotifyCondition>
+                    <NotifyCondition name="RunReports">true</NotifyCondition>
+                    <NotifyCondition name="RunValidationReport">false</NotifyCondition>
+               </NotifyConditions>
           </Notifications>
           <PODProtocol Name="Pooling DNA Sources to Standards" Version="1.0" Root="SSS_EXPT_ROOT_DIR_SSS">
                <EchoProtocol>
@@ -35,7 +48,7 @@
                          <numofplatecopy>1</numofplatecopy>
                          <numofreplicates>1</numofreplicates>
                          <preprocesspicklist>True</preprocesspicklist>
-                         <echocpcompoundlist>"SSS_SOURCES_POOL_TO_STANDARDS_CSV_FP_SSS"</echocpcompoundlist>
+                         <echocpcompoundlist>SSS_SOURCES_POOL_TO_STANDARDS_CSV_FP_SSS</echocpcompoundlist>
                          <compoundheaderinfo>
                               <headerinfo separator="," hasheader="True">
                                    <columninfos>
@@ -111,7 +124,7 @@ SSS_POOLING_PLATEMAP_ROWS_SSS                </PlateMap>
                <StorageSets />
           </PODProtocol>
      </Run>
-     <Run RunID="399" RunName="Step 2: Create Corning Blacks from Sources" RunDelayInSeconds="0" ScheduleRunTime="1/1/0001 12:00:00 AM">
+     <Run RunID="0" RunName="Step 2: Corning Blacks from Sources" RunDelayInSeconds="0" ScheduleRunTime="1/1/0001 12:00:00 AM">
           <Definition>
                <ReferenceID />
                <Comments />
@@ -128,6 +141,19 @@ SSS_POOLING_PLATEMAP_ROWS_SSS                </PlateMap>
           </Parameters>
           <Notifications>
                <Users />
+               <NotifyConditions>
+                    <NotifyCondition name="RunStarted">true</NotifyCondition>
+                    <NotifyCondition name="RunRequiresUserAttention">true</NotifyCondition>
+                    <NotifyCondition name="RunExecutionError">true</NotifyCondition>
+                    <NotifyCondition name="RunFinished">true</NotifyCondition>
+                    <NotifyCondition name="RunCompletedSuccessfully">false</NotifyCondition>
+                    <NotifyCondition name="RunCompletedWithWarnings">false</NotifyCondition>
+                    <NotifyCondition name="RunCompletedWithErrors">false</NotifyCondition>
+                    <NotifyCondition name="RunStopped">true</NotifyCondition>
+                    <NotifyCondition name="RunAborted">false</NotifyCondition>
+                    <NotifyCondition name="RunReports">true</NotifyCondition>
+                    <NotifyCondition name="RunValidationReport">false</NotifyCondition>
+               </NotifyConditions>
           </Notifications>
           <PODProtocol Name="Create Corning Blacks from Sources" Version="1.0" Root="SSS_EXPT_ROOT_DIR_SSS">
                <EchoProtocol>
@@ -284,7 +310,7 @@ SSS_SOURCES_PLATEMAP_ROWS_SSS                </PlateMap>
                <StorageSets />
           </PODProtocol>
      </Run>
-     <Run RunID="400" RunName="Step 3: Create Corning Black from Standards" RunDelayInSeconds="0" ScheduleRunTime="1/1/0001 12:00:00 AM">
+     <Run RunID="0" RunName="Step 3: Corning Black from Standards" RunDelayInSeconds="0" ScheduleRunTime="1/1/0001 12:00:00 AM">
           <Definition>
                <ReferenceID />
                <Comments />
@@ -301,6 +327,19 @@ SSS_SOURCES_PLATEMAP_ROWS_SSS                </PlateMap>
           </Parameters>
           <Notifications>
                <Users />
+               <NotifyConditions>
+                    <NotifyCondition name="RunStarted">true</NotifyCondition>
+                    <NotifyCondition name="RunRequiresUserAttention">true</NotifyCondition>
+                    <NotifyCondition name="RunExecutionError">true</NotifyCondition>
+                    <NotifyCondition name="RunFinished">true</NotifyCondition>
+                    <NotifyCondition name="RunCompletedSuccessfully">false</NotifyCondition>
+                    <NotifyCondition name="RunCompletedWithWarnings">false</NotifyCondition>
+                    <NotifyCondition name="RunCompletedWithErrors">false</NotifyCondition>
+                    <NotifyCondition name="RunStopped">true</NotifyCondition>
+                    <NotifyCondition name="RunAborted">false</NotifyCondition>
+                    <NotifyCondition name="RunReports">true</NotifyCondition>
+                    <NotifyCondition name="RunValidationReport">false</NotifyCondition>
+               </NotifyConditions>
           </Notifications>
           <PODProtocol Name="Create Corning Black from Standards" Version="1.0" Root="SSS_EXPT_ROOT_DIR_SSS">
                <EchoProtocol>
