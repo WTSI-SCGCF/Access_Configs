@@ -208,7 +208,23 @@ Plate Storage Definition
 ------------------------
 A user may choose to manually edit values for the plate storage data. The corresponding sections are shown in the RunDef file.
 
-<StorageSets />
+Before creating a protocol, a user must populate the racks or stacks with physical plates and update Tempo software's plate storage information. All plate
+processing functions are based on accurate identification of the plate type (number of wells, manufacturer, volume capacity), category (source, destination), and cover (lidded, sealed).
+
+When 'Adding' plates to a RACK the following parameters are set:
+* Plate Type 			- Select the plates types above the center line for Echo qualified source plates and below the center line for destination plates.
+* Lid Types 			- Select Microclime or another configured lid type.
+* Plate Category 		- Select the plate category, such as unknown, source, intermediate, destination, counterbalance, fixed, or temporary.
+* Plate Sealed 			- Select Yes if the plate is sealed. Otherwise, select No.
+* Plate Status 			- Select the plate status (Ok, Error, Warning, Unknown)
+
+When 'Adding' plates to a LIFO 'STACK' the following parameters are set (they are added in a batch):
+* To Stack 				- Select the Rack/Stack number containing the stacked plates.
+* Plate Type 			- Select the plate types above the center line for Echo qualified source plates and below the center line for destination plates.
+* Plate Category 		- Select the plate category, such as source, destinations, etc.
+* Lid Type 				- Select Microclime or another configured lid type.
+* Sealed? 				- Select Yes if the plate is sealed. Otherwise, select No.
+* Number of Plates 		- Type or use the increment arrows to enter the number of plates.
 
 <PlateStorage ClearFinalStorageLocations="True">
 	<PlateStorageData>Plates Version

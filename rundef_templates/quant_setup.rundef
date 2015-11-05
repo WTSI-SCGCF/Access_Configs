@@ -473,4 +473,9 @@ SSS_STANDARDS_PLATEMAP_ROWS_SSS                   </PlateMap>
                <StorageSets />
           </PODProtocol>
      </Run>
+     <PlateStorage ClearFinalStorageLocations="True">
+          <PlateStorageData>Plates Version
+PlateID,EchoPlateID,PlateName,PlateBarcode,PlateType,PlateCategory,LidType,Sealed,PlateStatus,OriginalLocation,FinalLocation,CurrentLocation,RunLocation,CurrentRotation,PlateRename,PlateState,LidLocation,
+SSS_PLATE_STORAGE_STD_PLATE_SSSSSS_PLATE_STORAGE_SRC_PLATES_SSSSSS_PLATE_STORAGE_DEST_PLATES_SSS          </PlateStorageData>
+     </PlateStorage>
 </RunSet>
