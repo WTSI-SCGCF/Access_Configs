@@ -1,11 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <RunSet Name="DNA Quantification prior to Library Preparation">
      <RunSetOwner>ACCESS</RunSetOwner>
-     <RunSetComments>Runset to handle DNA Quantification</RunSetComments>
+     <RunSetComments>This file is generated automatically by the Access System python script</RunSetComments>
      <Run RunID="0" RunName="Step 1: Pooling DNA to Standards" RunDelayInSeconds="0" ScheduleRunTime="1/1/0001 12:00:00 AM">
           <Definition>
-               <ReferenceID>SSS_RUNSET_REFERENCE_ID_SSS</ReferenceID>
-               <Comments>This file is generated automatically by the Access System python script</Comments>
+               <ReferenceID>SSS_RUNSET_REFERENCE_ID_SSS_step_1</ReferenceID>
+               <Comments>For each DNA Source plate this generates a pool well on the Standards plate</Comments>
                <Owner>ACCESS</Owner>
           </Definition>
           <Parameters>
@@ -70,7 +70,7 @@
 SSS_POOLING_PLATEMAP_ROWS_SSS                </PlateMap>
                <RunActions>
                     <PreRunActions>
-                         <ActionSet Name="DNAQ_STD">
+                         <ActionSet Name="DNAQ_standards">
                               <Read_Barcode>
                                    <BarcodeMismatchString>Prompt user for action</BarcodeMismatchString>
                                    <BarcodeMissingString>Clear barcode and continue</BarcodeMissingString>
@@ -84,7 +84,7 @@ SSS_POOLING_PLATEMAP_ROWS_SSS                </PlateMap>
                     </PreRunActions>
                     <RunActions />
                     <PostRunActions>
-                         <ActionSet Name="DNAQ_STD">
+                         <ActionSet Name="DNAQ_standards">
                               <Spin_Plate>
                                    <Acceleration>50</Acceleration>
                                    <Deceleration>50</Deceleration>
@@ -126,8 +126,8 @@ SSS_POOLING_PLATEMAP_ROWS_SSS                </PlateMap>
      </Run>
      <Run RunID="0" RunName="Step 2: Corning Blacks from Sources" RunDelayInSeconds="0" ScheduleRunTime="1/1/0001 12:00:00 AM">
           <Definition>
-               <ReferenceID />
-               <Comments />
+               <ReferenceID>SSS_RUNSET_REFERENCE_ID_SSS_step_2</ReferenceID>
+               <Comments>For each DNA Source plate this maps aliquots across to a Corning Black plate</Comments>
                <Owner>ACCESS</Owner>
           </Definition>
           <Parameters>
@@ -312,8 +312,8 @@ SSS_SOURCES_PLATEMAP_ROWS_SSS                </PlateMap>
      </Run>
      <Run RunID="0" RunName="Step 3: Corning Black from Standards" RunDelayInSeconds="0" ScheduleRunTime="1/1/0001 12:00:00 AM">
           <Definition>
-               <ReferenceID />
-               <Comments />
+               <ReferenceID>SSS_RUNSET_REFERENCE_ID_SSS_step_3</ReferenceID>
+               <Comments>This transfers aliquots of the ladder and pool wells from the Standards plate across to create replicates on a Corning Black plate</Comments>
                <Owner>ACCESS</Owner>
           </Definition>
           <Parameters>
