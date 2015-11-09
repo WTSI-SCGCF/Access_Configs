@@ -70,7 +70,8 @@
 SSS_POOLING_PLATEMAP_ROWS_SSS                </PlateMap>
                <RunActions>
                     <PreRunActions>
-                         <ActionSet Name="DNAQ_standards">
+                         <ActionSet Name="Source" />
+                         <ActionSet Name="Destination">
                               <Read_Barcode>
                                    <BarcodeMismatchString>Prompt user for action</BarcodeMismatchString>
                                    <BarcodeMissingString>Clear barcode and continue</BarcodeMissingString>
@@ -79,12 +80,15 @@ SSS_POOLING_PLATEMAP_ROWS_SSS                </PlateMap>
                                    <UserPriority>Normal</UserPriority>
                                    <DeviceName />
                               </Read_Barcode>
-                         </ActionSet>
-                         <ActionSet Name="Source" />
+                         </ActionSet>                         
                     </PreRunActions>
-                    <RunActions />
+                    <RunActions>
+                         <ActionSet Name="Source" />
+                         <ActionSet Name="Destination" />
+                    </RunActions>
                     <PostRunActions>
-                         <ActionSet Name="DNAQ_standards">
+                         <ActionSet Name="Source" />
+                         <ActionSet Name="Destination">
                               <Spin_Plate>
                                    <Acceleration>50</Acceleration>
                                    <Deceleration>50</Deceleration>
@@ -95,8 +99,7 @@ SSS_POOLING_PLATEMAP_ROWS_SSS                </PlateMap>
                                    <UserPriority>Normal</UserPriority>
                                    <DeviceName />
                               </Spin_Plate>
-                         </ActionSet>
-                         <ActionSet Name="Source" />
+                         </ActionSet>                        
                     </PostRunActions>
                     <PreProtocolRunActions>
                          <ActionSet Name="actions" />
@@ -194,9 +197,14 @@ SSS_SOURCES_PLATEMAP_ROWS_SSS                </PlateMap>
                <RunActions>
                     <PreRunActions>
                          <ActionSet Name="Source" />
+                         <ActionSet Name="Destination" />
                     </PreRunActions>
-                    <RunActions />
+                    <RunActions>
+                         <ActionSet Name="Source" />
+                         <ActionSet Name="Destination" />
+                    </RunActions>
                     <PostRunActions>
+                         <ActionSet Name="Source" />
                          <ActionSet Name="Destination">
                               <Bulkfill_CombiNL>
                                    <DispenserDirectionByRow>True</DispenserDirectionByRow>
@@ -264,7 +272,6 @@ SSS_SOURCES_PLATEMAP_ROWS_SSS                </PlateMap>
                                    <DeviceName>FLUOstar</DeviceName>
                               </PHERAstar_Read_Plate>
                          </ActionSet>
-                         <ActionSet Name="Source" />
                     </PostRunActions>
                     <PreProtocolRunActions>
                          <ActionSet Name="actions">
@@ -379,11 +386,15 @@ SSS_STANDARDS_PLATEMAP_ROWS_SSS                   </PlateMap>
                <RunActions>
                     <PreRunActions>
                          <ActionSet Name="Source" />
+                         <ActionSet Name="Destination" />
                     </PreRunActions>
-                    <RunActions />
+                    <RunActions>
+                         <ActionSet Name="Source" />
+                         <ActionSet Name="Destination" />
+                    </RunActions>
                     <PostRunActions>
                          <ActionSet Name="Source" />
-                         <ActionSet Name="DNAQ_Black">
+                         <ActionSet Name="Destination">
                               <Bulkfill_CombiNL>
                                    <DispenserDirectionByRow>True</DispenserDirectionByRow>
                                    <PlateType>Corning_384PS_Black</PlateType>
