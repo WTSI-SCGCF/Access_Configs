@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<RunSet Name="DNA Quantification prior to Library Preparation">
+<RunSet Name="DNA Quantification - Standards">
      <RunSetOwner>ACCESS</RunSetOwner>
      <RunSetComments>This file is generated automatically by the Access System python script</RunSetComments>
      <Run RunID="0" RunName="Step 1: Pooling DNA to Standards" RunDelayInSeconds="0" ScheduleRunTime="1/1/0001 12:00:00 AM">
           <Definition>
-               <ReferenceID>SSS_RUNSET_REFERENCE_ID_SSS_step_1</ReferenceID>
+               <ReferenceID>SSS_RUNSET_REFERENCE_ID_SSS;1</ReferenceID>
                <Comments>For each DNA Source plate this generates a pool well on the Standards plate</Comments>
                <Owner>ACCESS</Owner>
           </Definition>
@@ -40,6 +40,7 @@
                     <SelectedEcho>Echo</SelectedEcho>
                     <Path>SSS_CHERRY_PICK_384DEST_ECP_FP_SSS</Path>
                     <IgnoreChecksum>True</IgnoreChecksum>
+                    <ProtocolChecksum />
                     <EchoApplicationFileNames>
                          <File FileType="DefaultProtocol" FileName="C:\Program Files\Labcyte\Echo Cherry Pick\EchoCherryPick.default" />
                          <File FileType="CompoundPickList" FileName="SSS_SOURCES_POOL_TO_STANDARDS_CSV_FP_SSS" />
@@ -71,16 +72,7 @@ SSS_POOLING_PLATEMAP_ROWS_SSS                </PlateMap>
                <RunActions>
                     <PreRunActions>
                          <ActionSet Name="Source" />
-                         <ActionSet Name="Destination">
-                              <Read_Barcode>
-                                   <BarcodeMismatchString>Prompt user for action</BarcodeMismatchString>
-                                   <BarcodeMissingString>Clear barcode and continue</BarcodeMissingString>
-                                   <ErrorPlateDispositionString>Original Location</ErrorPlateDispositionString>
-                                   <Schedule>Immediately</Schedule>
-                                   <UserPriority>Normal</UserPriority>
-                                   <DeviceName />
-                              </Read_Barcode>
-                         </ActionSet>                         
+                         <ActionSet Name="Destination" />     
                     </PreRunActions>
                     <RunActions>
                          <ActionSet Name="Source" />
@@ -127,200 +119,10 @@ SSS_POOLING_PLATEMAP_ROWS_SSS                </PlateMap>
                <StorageSets />
           </PODProtocol>
      </Run>
-     <Run RunID="0" RunName="Step 2: Corning Blacks from Sources" RunDelayInSeconds="0" ScheduleRunTime="1/1/0001 12:00:00 AM">
+     <Run RunID="0" RunName="Step 2: Corning Black from Standards" RunDelayInSeconds="0" ScheduleRunTime="1/1/0001 12:00:00 AM">
           <Definition>
-               <ReferenceID>SSS_RUNSET_REFERENCE_ID_SSS_step_2</ReferenceID>
-               <Comments>For each DNA Source plate this maps aliquots across to a Corning Black plate</Comments>
-               <Owner>ACCESS</Owner>
-          </Definition>
-          <Parameters>
-               <Parameter name="InitializeDevices">false</Parameter>
-               <Parameter name="InventoryPlates">false</Parameter>
-               <Parameter name="AutoAssignBarcodedPlateLocations">false</Parameter>
-               <Parameter name="InheritPlateStorageDefinitions">false</Parameter>
-               <Parameter name="AllowWarningPlates">false</Parameter>
-               <Parameter name="AllowErrorPlates">false</Parameter>
-               <Parameter name="AllowMissingPlates">false</Parameter>
-          </Parameters>
-          <Notifications>
-               <Users />
-               <NotifyConditions>
-                    <NotifyCondition name="RunStarted">true</NotifyCondition>
-                    <NotifyCondition name="RunRequiresUserAttention">true</NotifyCondition>
-                    <NotifyCondition name="RunExecutionError">true</NotifyCondition>
-                    <NotifyCondition name="RunFinished">true</NotifyCondition>
-                    <NotifyCondition name="RunCompletedSuccessfully">false</NotifyCondition>
-                    <NotifyCondition name="RunCompletedWithWarnings">false</NotifyCondition>
-                    <NotifyCondition name="RunCompletedWithErrors">false</NotifyCondition>
-                    <NotifyCondition name="RunStopped">true</NotifyCondition>
-                    <NotifyCondition name="RunAborted">false</NotifyCondition>
-                    <NotifyCondition name="RunReports">true</NotifyCondition>
-                    <NotifyCondition name="RunValidationReport">false</NotifyCondition>
-               </NotifyConditions>
-          </Notifications>
-          <PODProtocol Name="Create Corning Blacks from Sources" Version="1.0" Root="SSS_EXPT_ROOT_DIR_SSS">
-               <EchoProtocol>
-                    <DataSetName>EchoProtocol</DataSetName>
-                    <UsingEchoApplication>True</UsingEchoApplication>
-                    <SelectedEcho>Echo</SelectedEcho>
-                    <Path>SSS_CHERRY_PICK_CORNINGBLACK_ECP_FP_SSS</Path>
-                    <IgnoreChecksum>True</IgnoreChecksum>
-                    <ProtocolChecksum />
-                    <EchoApplicationFileNames>
-                         <File FileType="DefaultProtocol" FileName="C:\Program Files\Labcyte\Echo Cherry Pick\EchoCherryPick.default" />
-                         <File FileType="CompoundPickList" FileName="SSS_SOURCES_TO_CORNINGBLACK_CSV_FP_SSS" />
-                    </EchoApplicationFileNames>
-                    <RunOptions appname="Echo Cherry Pick" appversion="0.0.0" appextension=".ecp">
-                         <numofplatecopy>1</numofplatecopy>
-                         <numofreplicates>1</numofreplicates>
-                         <preprocesspicklist>True</preprocesspicklist>
-                         <echocpcompoundlist>SSS_SOURCES_TO_CORNINGBLACK_CSV_FP_SSS</echocpcompoundlist>
-                         <compoundheaderinfo>
-                              <headerinfo separator="," hasheader="True">
-                                   <columninfos>
-                                        <Column pos="1" name="Source Plate Name" field="SrcPlateName" />
-                                        <Column pos="2" name="Source Plate Barcode" field="SrcPlateBarcode" />
-                                        <Column pos="3" name="Source Plate Type" field="SrcPlateType" />
-                                        <Column pos="4" name="Source Well" field="SrcWell" />
-                                        <Column pos="5" name="Transfer Volume" field="XferVol" />
-                                        <Column pos="6" name="Destination Plate Name" field="DestPlateName" />
-                                        <Column pos="7" name="Destination Plate Barcode" field="DestPlateBarcode" />
-                                        <Column pos="8" name="Destination Plate Type" />
-                                        <Column pos="9" name="Destination well" field="DestWell" />
-                                   </columninfos>
-                              </headerinfo>
-                         </compoundheaderinfo>
-                    </RunOptions>
-               </EchoProtocol>
-               <PlateMap>
-SSS_SOURCES_PLATEMAP_ROWS_SSS                </PlateMap>
-               <RunActions>
-                    <PreRunActions>
-                         <ActionSet Name="Source" />
-                         <ActionSet Name="Destination" />
-                    </PreRunActions>
-                    <RunActions>
-                         <ActionSet Name="Source" />
-                         <ActionSet Name="Destination" />
-                    </RunActions>
-                    <PostRunActions>
-                         <ActionSet Name="Source" />
-                         <ActionSet Name="Destination">
-                              <Bulkfill_CombiNL>
-                                   <DispenserDirectionByRow>True</DispenserDirectionByRow>
-                                   <PlateType>Corning_384PS_Black</PlateType>
-                                   <XOffset>0</XOffset>
-                                   <YOffset>0</YOffset>
-                                   <PostShakeDuration>0</PostShakeDuration>
-                                   <PostShakeFreq>0</PostShakeFreq>
-                                   <Comment />
-                                   <Liquid>Water</Liquid>
-                                   <NumTimesToDispense>1</NumTimesToDispense>
-                                   <DeviceName>CombiNL</DeviceName>
-                                   <IsEchoLiquidType>False</IsEchoLiquidType>
-                                   <UseMapFromEchoProtocol>False</UseMapFromEchoProtocol>
-                                   <BulkFillMap>
-                                        <bulkfill fluid="water" fill="Column" UseMapFromFile="False" BulkFillFileName="">
-                                             <bulkfilldata col="1" volume="50000" units="nL" />
-                                             <bulkfilldata col="2" volume="50000" units="nL" />
-                                             <bulkfilldata col="3" volume="50000" units="nL" />
-                                             <bulkfilldata col="4" volume="50000" units="nL" />
-                                             <bulkfilldata col="5" volume="50000" units="nL" />
-                                             <bulkfilldata col="6" volume="50000" units="nL" />
-                                             <bulkfilldata col="7" volume="50000" units="nL" />
-                                             <bulkfilldata col="8" volume="50000" units="nL" />
-                                             <bulkfilldata col="9" volume="50000" units="nL" />
-                                             <bulkfilldata col="10" volume="50000" units="nL" />
-                                             <bulkfilldata col="11" volume="50000" units="nL" />
-                                             <bulkfilldata col="12" volume="50000" units="nL" />
-                                             <bulkfilldata col="13" volume="50000" units="nL" />
-                                             <bulkfilldata col="14" volume="50000" units="nL" />
-                                             <bulkfilldata col="15" volume="50000" units="nL" />
-                                             <bulkfilldata col="16" volume="50000" units="nL" />
-                                             <bulkfilldata col="17" volume="50000" units="nL" />
-                                             <bulkfilldata col="18" volume="50000" units="nL" />
-                                             <bulkfilldata col="19" volume="50000" units="nL" />
-                                             <bulkfilldata col="20" volume="50000" units="nL" />
-                                             <bulkfilldata col="21" volume="50000" units="nL" />
-                                             <bulkfilldata col="22" volume="50000" units="nL" />
-                                             <bulkfilldata col="23" volume="50000" units="nL" />
-                                             <bulkfilldata col="24" volume="50000" units="nL" />
-                                        </bulkfill>
-                                   </BulkFillMap>
-                                   <BulkFillerDispenseParameters>DefaultParameters</BulkFillerDispenseParameters>
-                                   <AutoPrimeVolume>500</AutoPrimeVolume>
-                                   <Schedule>Immediately</Schedule>
-                                   <UserPriority>Normal</UserPriority>
-                              </Bulkfill_CombiNL>
-                              <Spin_Plate>
-                                   <Acceleration>50</Acceleration>
-                                   <Deceleration>50</Deceleration>
-                                   <Velocity>3000</Velocity>
-                                   <MaxVelocity>3000</MaxVelocity>
-                                   <SpinTime>30</SpinTime>
-                                   <Schedule>Immediately</Schedule>
-                                   <UserPriority>Normal</UserPriority>
-                                   <DeviceName />
-                              </Spin_Plate>
-                              <PHERAstar_Read_Plate>
-                                   <ReadPlateParameters>Labcyte.POD.Devices.Pherastar.ReadPlateParameters</ReadPlateParameters>
-                                   <ProtocolName>AccuClear UHS</ProtocolName>
-                                   <DataFileName />
-                                   <LoadUnloadOnly>False</LoadUnloadOnly>
-                                   <Schedule>Immediately</Schedule>
-                                   <UserPriority>Normal</UserPriority>
-                                   <DeviceName>FLUOstar</DeviceName>
-                              </PHERAstar_Read_Plate>
-                         </ActionSet>
-                    </PostRunActions>
-                    <PreProtocolRunActions>
-                         <ActionSet Name="actions">
-                              <Prime_CombiNL>
-                                   <DeviceName>CombiNL</DeviceName>
-                                   <BulkFillerDispenseParameters>DefaultParameters</BulkFillerDispenseParameters>
-                                   <PrimeVolume>10000</PrimeVolume>
-                                   <PumpSpeed>100</PumpSpeed>
-                                   <Schedule>Immediately</Schedule>
-                                   <UserPriority>Normal</UserPriority>
-                              </Prime_CombiNL>
-                              <Prime_CombiNL>
-                                   <DeviceName>CombiNL</DeviceName>
-                                   <BulkFillerDispenseParameters>DefaultParameters</BulkFillerDispenseParameters>
-                                   <PrimeVolume>10000</PrimeVolume>
-                                   <PumpSpeed>100</PumpSpeed>
-                                   <Schedule>Immediately</Schedule>
-                                   <UserPriority>Normal</UserPriority>
-                              </Prime_CombiNL>
-                         </ActionSet>
-                    </PreProtocolRunActions>
-                    <PostProtocolRunActions>
-                         <ActionSet Name="actions" />
-                    </PostProtocolRunActions>
-                    <ExternalValidatorRunActions>
-                         <ActionSet Name="actions" />
-                    </ExternalValidatorRunActions>
-               </RunActions>
-               <FluidMap>
-                    <Fluid DeviceName="CombiNLDevice" DeviceFluid="Water" ProtocolFluid="n/a" />
-               </FluidMap>
-               <PlateInserts>
-                    <Insert PlateType="384PP_AQ_SP_High" InsertName="SOURCE PLATE W/2.10 MM INSET" />
-               </PlateInserts>
-               <SealerInserts />
-               <CounterBalances>
-                    <PlateBalance PlateType="Corning_384PS_Black" CounterBalance="Corning 384 PS balance 50ul" />
-                    <UserAssignedCounterBalance>
-                         <EchoPlateCounterBalance EchoID="3" CounterBalance="Corning 384 PS balance 50ul" />
-                         <EchoPlateCounterBalance EchoID="4" CounterBalance="Corning 384 PS balance 50ul" />
-                    </UserAssignedCounterBalance>
-               </CounterBalances>
-               <StorageSets />
-          </PODProtocol>
-     </Run>
-     <Run RunID="0" RunName="Step 3: Corning Black from Standards" RunDelayInSeconds="0" ScheduleRunTime="1/1/0001 12:00:00 AM">
-          <Definition>
-               <ReferenceID>SSS_RUNSET_REFERENCE_ID_SSS_step_3</ReferenceID>
-               <Comments>This transfers aliquots of the ladder and pool wells from the Standards plate across to create replicates on a Corning Black plate</Comments>
+               <ReferenceID>SSS_RUNSET_REFERENCE_ID_SSS;2</ReferenceID>
+               <Comments>This step transfers aliquots of the ladder and pool wells from the Standards plate across to create replicates on a Corning Black plate</Comments>
                <Owner>ACCESS</Owner>
           </Definition>
           <Parameters>
@@ -355,9 +157,10 @@ SSS_SOURCES_PLATEMAP_ROWS_SSS                </PlateMap>
                     <SelectedEcho>Echo</SelectedEcho>
                     <Path>SSS_CHERRY_PICK_CORNINGBLACK_ECP_FP_SSS</Path>
                     <IgnoreChecksum>True</IgnoreChecksum>
+                    <ProtocolChecksum />
                     <EchoApplicationFileNames>
                          <File FileType="DefaultProtocol" FileName="C:\Program Files\Labcyte\Echo Cherry Pick\EchoCherryPick.default" />
-                         <File FileType="CompoundPickList" FileName="SSS_STANDARDS_TO_CORNINGBLACK_CSV_FP_SSS" Checksum="a62a2983e078a059a7539ff178f4aeb7" />
+                         <File FileType="CompoundPickList" FileName="SSS_STANDARDS_TO_CORNINGBLACK_CSV_FP_SSS" />
                     </EchoApplicationFileNames>
                     <RunOptions appname="Echo Cherry Pick" appversion="0.0.0" appextension=".ecp">
                          <numofplatecopy>1</numofplatecopy>
